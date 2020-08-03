@@ -10,62 +10,15 @@
     <h2>Address Book</h1>
     <h4>Welcome to your address book.</h3>
     <div>
-      <button class="accordion">Section 1</button>
-      <div class="panel">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
-
-      <button class="accordion">Section 2</button>
-      <div class="panel">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
-
-      <button class="accordion">Section 3</button>
-      <div class="panel">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
-      <button class="accordion">Section 4</button>
-      <div class="panel">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
-      <button class="accordion">Section 5</button>
-      <div class="panel">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
-      <button class="accordion">Section 6</button>
-      <div class="panel">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
+      <button onclick="consoleContacts()">Console Contacts</button>
+      <button onclick="displayContacts()">All Contacts</button>
+      <!-- <button onclick="fivePosts()">Fetch 5 Posts</button>
+      <button onclick="fetchComments()">Fetch Comments</button>
+      <button onclick="displayUsers()">Fetch Users</button>
+      <button onclick="clearList()">Clear List</button> -->
+    <div>
+      <ul id="all-contacts"></ul>
+    </div>
     </div>
     <script src="main.js"></script>
   </body>
