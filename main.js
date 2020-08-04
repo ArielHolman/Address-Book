@@ -72,3 +72,4 @@ const displayContacts = () => {
     allContacts.append(li)
   })
 }
+// have button text change from more info to less info when opened.
