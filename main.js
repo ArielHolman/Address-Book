@@ -1,3 +1,6 @@
+/* eslint-disable no-return-assign */
+/* eslint-disable no-console */
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-undef */
 // Code Plan
@@ -21,39 +24,51 @@ const getContacts = () => {
     .then((contacts) => (arrayOfContacts = contacts.results))
 }
 
-const consoleContacts = () => {
-  console.log(arrayOfContacts)
-}
+// const consoleContacts = () => {
+//   console.log(arrayOfContacts)
+// }
 
+// Hides contacts personal information unless button is click on
+const showMoreInfo = (id) => {
+  const contactInfo = document.getElementById(id)
+  if (contactInfo.style.display === "block") {
+    contactInfo.style.display = "none"
+  } else {
+    contactInfo.style.display = "block"
+  }
+}
+// Displays all of the information from the request. Note, this funtion is within the map method so it goes for every contact. Since we needed information to each contact was getting the button applied we had to use the index to seperate by contact.
+// eslint-disable-next-line no-unused-vars
 const displayContacts = () => {
   const allContacts = document.getElementById("all-contacts")
-  arrayOfContacts.map((contact) => {
+  // eslint-disable-next-line array-callback-return
+  arrayOfContacts.map((contact, i) => {
     const li = document.createElement("li")
     const { name, phone, email, dob, location, picture } = contact
     const img = document.createElement("img")
     img.src = picture.medium
-    const text = document.createTextNode(
-      `${name.first} ${name.last}, Phone: ${phone}, Email: ${email}, Address: ${location.street.number} ${location.street.name} ${location.city} ${location.state} ${location.postcode} ${location.country}, Birthday: ${dob.date}`
+    const fullName = document.createTextNode(`${name.first} ${name.last}`)
+    const moreInfoBtn = document.createElement("button")
+    const moreInfoBtnText = document.createTextNode("More Info")
+    const moreInfoLi = document.createElement("li")
+    moreInfoLi.style.display = "none"
+    moreInfoLi.setAttribute("id", `more-info-${i}`)
+    console.log(moreInfoLi)
+    moreInfoBtn.addEventListener("click", () => {
+      showMoreInfo(moreInfoLi.id)
+    })
+    const contactInfo = document.createTextNode(
+      `Phone: ${phone}, Email: ${email}, Address: ${location.street.number} ${location.street.name} ${location.city} ${location.state} ${location.postcode} ${location.country}, Birthday: ${dob.date}`
     )
+    // append primary info to list item
     li.appendChild(img)
-    li.appendChild(text)
+    li.appendChild(fullName)
+    li.appendChild(moreInfoBtn)
+    // append contact info to button
+    moreInfoLi.append(contactInfo)
+    moreInfoBtn.append(moreInfoBtnText)
+    // append info to function
+    allContacts.append(moreInfoLi)
     allContacts.append(li)
-  })
-}
-
-// Code to create the accordion
-const acc = document.getElementsByClassName("accordion")
-let i
-
-for (i = 0; i < acc.length; i++) {
-  // eslint-disable-next-line prettier/prettier
-  acc[i].addEventListener("click", function () {
-    this.classList.toggle("active")
-    const panel = this.nextElementSibling
-    if (panel.style.display === "block") {
-      panel.style.display = "none"
-    } else {
-      panel.style.display = "block"
-    }
   })
 }
